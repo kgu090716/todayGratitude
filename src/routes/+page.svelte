@@ -2,7 +2,6 @@
   import { ClipboardCopy } from 'lucide-svelte';
   import { RotateCw } from 'lucide-svelte';
   import { extractFiveThanks } from './func';
-  import { fade } from 'svelte/transition';
 
   let thanks = extractFiveThanks();
 
@@ -48,32 +47,6 @@
         }
   }
 
-// function copyToClipboard(text) {
-//     const defaultSuccess = () => alert("복사되었습니다. 원하는 곳에 붙여넣기하여 주세요.");
-//     const defaultFailure = () => prompt("키보드의 ctrl+C 또는 마우스 오른쪽의 복사하기를 이용해주세요.", text);
-//     if (navigator.clipboard) {
-//         navigator.clipboard
-//             .writeText(text)
-//             .then(defaultSuccess)
-//             .catch(defaultFailure);
-//     } else {
-//         const textarea = document.createElement("textarea");
-//         document.body.appendChild(textarea);
-//         textarea.value = text;
-//         textarea.select();
-//         try {
-//             if (document.execCommand("copy")) {
-//                 (defaultSuccess)();
-//             } else {
-//                 (defaultFailure)();
-//             }
-//         } catch (err) {
-//             (defaultFailure)();
-//         } finally {
-//             document.body.removeChild(textarea);
-//         }
-//     }
-// }
 </script>
 
 
@@ -115,7 +88,7 @@
 
 {#each thanks as thank, idx}
 {#if copyConfirmed[idx] == 1}
-<div class="card m-2 bg-success w-[calc(100%-120px)] shadow-xl">
+<div class="card m-2 bg-success w-[calc(100%-60px)] shadow-xl">
   <div class="card-body flex flex-row justify-between items-center">
     <h2 class="card-title">
   <svg
@@ -134,7 +107,7 @@
   </div>
 </div>
 {:else if copyConfirmed[idx] == -1}
-<div class="card m-2 bg-error w-[calc(100%-120px)] shadow-xl">
+<div class="card m-2 bg-error w-[calc(100%-60px)] shadow-xl">
   <div class="card-body flex flex-row justify-between items-center">
     <h2 class="card-title">
   <svg
@@ -154,7 +127,7 @@
 </div>
 {:else}
 <!-- Card -->
-<div class="card m-2 bg-base-100 w-[calc(100%-120px)] shadow-xl">
+<div class="card m-2 bg-base-100 w-[calc(100%-60px)] shadow-xl">
   <div class="card-body flex flex-row justify-between items-center">
     <h2 class="card-title">{thank}</h2>
     <div class="card-actions justify-end">
@@ -169,7 +142,7 @@
 {/each}
 
 
-<button class="btn btn-neutral w-[calc(100%-120px)] m-5" onclick={refreshThanks}>
+<button class="btn btn-neutral w-[calc(100%-60px)] m-5" onclick={refreshThanks}>
   <RotateCw />
 </button>
 
