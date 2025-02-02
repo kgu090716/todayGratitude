@@ -11,6 +11,7 @@
 
 	function refreshThanks() {
 		thanks = extractFiveThanks();
+    console.log(thanks);
     for(let i = 0; i < 5; i++) {
       copyConfirmed[i] = 0;
     }
@@ -57,7 +58,7 @@
 
 <!-- Content -->
 <div class="flex flex-col items-center justify-center">
-	{#each thanks as thank, idx}
+	{#each thanks as thank, idx (thank)}
 		<div class="card m-2 w-[calc(100%-60px)] shadow-xl {copyConfirmed[idx] ? (copyConfirmed[idx] == -1 ? 'bg-error' : 'bg-success') : 'bg-base-100'}">
 			<div class="card-body flex flex-row items-center justify-between">
 				{#if copyConfirmed[idx] == 1}

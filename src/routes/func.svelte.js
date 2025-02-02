@@ -34,12 +34,12 @@ export function copyToClipboard(text, idx) {
             .then(() => {
                 // console.log('클립보드에 복사되었습니다.');
                 copyConfirmed[idx] = 1;
-                setTimeout(() => (copyConfirmed[idx] = 0), 2000);
+                setTimeout(() => (copyConfirmed[idx] = 0), 1000);
             })
             .catch((err) => {
                 // console.error('클립보드 복사에 실패했습니다.', err);
                 copyConfirmed[idx] = -1;
-                setTimeout(() => (copyConfirmed[idx] = 0), 2000);
+                setTimeout(() => (copyConfirmed[idx] = 0), 1000);
             });
     } catch {
         console.log('error');
