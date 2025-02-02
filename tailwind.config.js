@@ -14,6 +14,6 @@ export default {
 	plugins: [typography, forms, containerQueries, daisyui],
 
 	daisyui: {
-		themes: ["light", "dracula"],
+		themes: ["light", "dark"],
 	}
 };
